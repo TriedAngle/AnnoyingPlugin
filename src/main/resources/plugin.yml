@@ -4,3 +4,7 @@ main: net.strobl.annoyingplugin.annoyingplugin.AnnoyingPlugin
 authors: [TryAngle]
 description: This Plugin is created to annoy people.
 website: Strobl.net
+commands:
+  annoy:
+    description: list all plugin commands
+    usage: /annoy

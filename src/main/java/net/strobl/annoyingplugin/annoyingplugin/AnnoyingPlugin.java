@@ -1,24 +1,22 @@
 package net.strobl.annoyingplugin.annoyingplugin;
 
 import net.strobl.annoyingplugin.commands.Annoy;
-import net.strobl.annoyingplugin.events.DeathEvent;
+import net.strobl.annoyingplugin.events.PlayerEvents;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class AnnoyingPlugin extends JavaPlugin {
 
-  private String currentVersion = "0.2";
+  private String currentVersion = "0.3";
   private static AnnoyingPlugin instance;
+  private PlayerEvents deathEvent;
 
   @Override
   public void onEnable() {
     System.out.println("AnnoyingPluginVersion " + currentVersion);
     System.out.println("initializing Events: ");
-    Bukkit.getPluginManager().registerEvents(new DeathEvent(this), this);
+    deathEvent = new PlayerEvents(this);
+    Bukkit.getPluginManager().registerEvents(deathEvent, this);
     System.out.println("Done initializing Events");
     System.out.println("initializing Commands: ");
     this.getCommand("annoy").setExecutor(new Annoy());

@@ -1,0 +1,6 @@
+name: AnnoyingPlugin
+version: @version@
+main: net.strobl.annoyingplugin.annoyingplugin.AnnoyingPlugin
+authors: [TryAngle]
+description: This Plugin is created to annoy people.
+website: Strobl.net

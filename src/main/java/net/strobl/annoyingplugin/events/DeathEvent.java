@@ -17,8 +17,13 @@ public class DeathEvent implements org.bukkit.event.Listener {
   @EventHandler
   public void onDeath(PlayerDeathEvent e){
     Player player = e.getEntity();
-    e.setDeathMessage(ChatColor.YELLOW + "Press " + ChatColor.GOLD + "F" + ChatColor.YELLOW + "to pay respect for " + player.getDisplayName());
-    main.getServer().broadcastMessage("F");
+    e.setDeathMessage(ChatColor.YELLOW + "Press " + ChatColor.GOLD + "F " + ChatColor.YELLOW + "to pay respect for " + ChatColor.MAGIC + player.getDisplayName());
+    try {
+      wait(5);
+      main.getServer().broadcastMessage("F");
+    } catch (InterruptedException ex) {
+      ex.printStackTrace();
+    }
   }
 
 }
